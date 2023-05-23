@@ -1,6 +1,5 @@
 import uuid
 
-from fastapi import File
 from pydantic import BaseModel
 
 

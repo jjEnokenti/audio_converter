@@ -2,7 +2,7 @@ import uuid
 
 from sqlalchemy import select, and_
 
-from src.db import User, session, Audio
+from . import User, session, Audio
 
 
 async def get_user(

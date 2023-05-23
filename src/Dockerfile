@@ -1,5 +1,8 @@
 FROM python:3.10-slim
 
+RUN apt update && apt upgrade
+RUN apt-get install -y ffmpeg
+
 WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE 1
