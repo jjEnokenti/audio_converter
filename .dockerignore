@@ -1,0 +1,7 @@
+venv/
+**__pycache__/
+.idea/
+.git/
+**.pytest_cache/
+
+src/Dockerfile
