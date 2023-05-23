@@ -132,4 +132,3 @@ dmypy.json
 postgres-data
 examples
 
-audio_files/*.mp3
