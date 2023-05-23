@@ -4,7 +4,7 @@ import uuid
 from fastapi import FastAPI, File, UploadFile, Form, status
 from fastapi.responses import FileResponse
 
-from src.config import BASE_DIR
+from src.config import settings
 from src.db import Audio
 from src.db.schemas import UserCreateRequest, UserCreateResponse, AudioResponse
 from src.services import service
@@ -55,7 +55,8 @@ async def add_audio(
         filename=audio_data.filename
     )
 
-    download_url = f'http://localhost:5000/record?id={audio.id}&user={user_id}'
+    download_url = (f'{settings.WEB_HOST}:{settings.WEB_PORT}/'
+                    f'record?id={audio.id}&user={user_id}')
 
     return {'download_url': download_url}
 
@@ -69,7 +70,7 @@ async def add_audio(
 async def download_audio(id: uuid.UUID, user: uuid.UUID):
     audio: Audio = await service.download_audio(audio_id=id, user_id=user)
 
-    path_to_download = os.path.join(BASE_DIR, audio.path_to_file)
+    path_to_download = os.path.join(settings.BASE_DIR, audio.path_to_file)
 
     return FileResponse(
         path=path_to_download,
