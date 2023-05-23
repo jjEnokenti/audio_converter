@@ -55,7 +55,8 @@ async def add_audio(
         filename=audio_data.filename
     )
 
-    download_url = (f'/record?id={audio.id}&user={user_id}')
+    download_url = (f'http://{settings.WEB_HOST}:{settings.WEB_PORT}'
+                    f'/record?id={audio.id}&user={user_id}')
 
     return {'download_url': download_url}
 
