@@ -1,8 +1,8 @@
-"""first migrate docker pg
+"""first migrate
 
-Revision ID: 9ff45477ef40
+Revision ID: 5ae64d640395
 Revises: 
-Create Date: 2023-05-23 15:41:31.908607
+Create Date: 2023-05-23 16:32:09.369820
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9ff45477ef40'
+revision = '5ae64d640395'
 down_revision = None
 branch_labels = None
 depends_on = None

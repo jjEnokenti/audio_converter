@@ -10,8 +10,8 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
     volumes:
-      - ../pg_data:/var/lib/postgresql/data
-      - ../audio_files:/app/audio_files
+      - ./pg_data:/var/lib/postgresql/data
+      - ./audio_files:/app/audio_files
     ports:
       - ${DB_PORT}:5432
     networks:
@@ -36,9 +36,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: bash -c "alembic revision --autogenerate &&
-      alembic upgrade head &&
-      uvicorn run:app --host 0.0.0.0
+    command: bash -c "alembic upgrade head &&
+      cd ./src && uvicorn run:app --host 0.0.0.0
       "
 
 volumes:

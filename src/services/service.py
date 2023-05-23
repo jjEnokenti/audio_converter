@@ -1,9 +1,8 @@
 import uuid
 from typing import BinaryIO
 
-from fastapi import HTTPException, UploadFile
+from fastapi import HTTPException, status
 from sqlalchemy.exc import DBAPIError
-from starlette import status
 
 from src.db import session, Audio, crud, User
 from src.utils.utils import converting_wav_to_mp3
