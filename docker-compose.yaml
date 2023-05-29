@@ -34,6 +34,7 @@ services:
       - converter_app_network
     volumes:
       - ./audio_files:/app/audio_files
+      - ./migrations:/app/migrations
     depends_on:
       db:
         condition: service_healthy
@@ -44,6 +45,7 @@ services:
 volumes:
   pg_data:
   audio_files:
+  migrations:
 
 networks:
   converter_app_network:
