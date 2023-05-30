@@ -134,3 +134,5 @@ examples
 
 audio_files/*.mp3
 pg_data
+
+migrations/versions/*.py
