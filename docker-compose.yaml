@@ -38,7 +38,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: bash -c "alembic upgrade head &&
+    command: bash -c "
+      alembic revision --autogenerate -m 'migrate into docker container' &&
+      alembic upgrade head &&
       cd ./src && uvicorn run:app --host ${WEB_HOST}
       "
 
